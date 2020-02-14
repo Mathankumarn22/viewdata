@@ -19,7 +19,39 @@ namespace OnlineMobileShop.Controllers
         }
         public ActionResult DisplayDetails()
         {
+
             return View();
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(Mobile mobile)
+        {
+            MobileRespository.Add(mobile);
+            TempData["Message"] = "Added";
+            return RedirectToAction("MobileDetails");
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            Mobile mobile = MobileRespository.GetMobileID(id);
+            return View(mobile);
+        }
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            MobileRespository.Delete(id);
+            return RedirectToAction("MobileDetails");
+        }
+        [HttpPost]
+        public ActionResult Update(Mobile mobile)
+        {
+            MobileRespository.Update(mobile);
+            return RedirectToAction("MobileDetails");
+
+        }
+
     }
 }
