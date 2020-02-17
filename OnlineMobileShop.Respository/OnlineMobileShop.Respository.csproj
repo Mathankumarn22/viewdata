@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="MobileRespository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRespository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineMobileShop.Entity\OnlineMobileShop.Entity.csproj">

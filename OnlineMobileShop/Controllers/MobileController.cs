@@ -27,8 +27,10 @@ namespace OnlineMobileShop.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Mobile mobile)
+        public ActionResult Create_post()
         {
+            Mobile mobile = new Mobile();
+            UpdateModel<Mobile>(mobile);
             MobileRespository.Add(mobile);
             TempData["Message"] = "Added";
             return RedirectToAction("MobileDetails");
@@ -46,8 +48,10 @@ namespace OnlineMobileShop.Controllers
             return RedirectToAction("MobileDetails");
         }
         [HttpPost]
-        public ActionResult Update(Mobile mobile)
+        public ActionResult Update()
         {
+            Mobile mobile = new Mobile();
+            TryUpdateModel<Mobile>(mobile);
             MobileRespository.Update(mobile);
             return RedirectToAction("MobileDetails");
 
